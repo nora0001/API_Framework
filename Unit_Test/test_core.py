@@ -26,8 +26,8 @@ class Test_api():
         #级联调用
         ApiHttpbinGet().run()\
             .validate("status_code",200)\
-            # .validate("headers.server","gunicorn/19.9.0")\
-            # .validate("json.url","https://httpbin.org/get")
+            .validate("headers.Server","gunicorn/19.9.0")\
+            # .validate("url","https://httpbin.org/get")
 
     def test_httpbin_get_with_params(self):
 
