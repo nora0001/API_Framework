@@ -1,0 +1,19 @@
+sudo: false
+language: python
+python:
+  - 3.5
+  - 3.6
+  - 3.7
+matrix:
+  include:
+    - python: 3.8
+      dist: xenial
+      sudo: true
+install:
+  - pip install poetry
+  - poetry install -vvv
+script:
+  - python run pytest -v
+  - poetry run coverage run --source=httprunner -m unittest discover
+after_success:
+  - poetry run coveralls
